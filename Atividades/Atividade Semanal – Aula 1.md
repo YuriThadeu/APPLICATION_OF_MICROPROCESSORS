@@ -1,18 +1,17 @@
-## SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
+ # SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
 
-### Parte 1 - Sistemas Embarcados e Microcontroladores
+## Parte 1 - Sistemas Embarcados e Microcontroladores
 
-####  Atividade Semanal – Aula 1
+###  Atividade Semanal – Aula 1
 
-NOME: Yuri Thadeu Oliveira Costa   
-N° USP: 14754821
+ - NOME: Yuri Thadeu Oliveira Costa   
+ - N° USP: 14754821
 
 
 **Questão 1**: Apresentar a definição formal de um sistema embarcado, indicando a referência primária do IEEE (Institute of Electrical and Electronics Engineers) que subsidie esta definição. Em seguida fazer uma explanação breve e objetiva sobre as principais características, funcionalidades e o que difere um sistema embarcado de um computador de propósito geral.
 
 >**RESPOSTA**: Sistemas Eletrônicos/Computacionais embarcados são definido pela IEEE 610.12-1990 (IEEE Standard Glossary of Software Engineering Terminology) como “um sistema computacional que faz parte de um sistema maior e implementa alguns dos requerimentos deste sistema”. Em resumo, um sistema embarcado difere de um GPC (Computador de Propósito Geral) por ter uma ou mais funções especificas que respondem e/ou executam tarefas predefinidas e que não podem ser alteradas durante o uso.
 
-***
 ***
 
 **Questão 2**: De acordo com os Relatórios de Pesquisa sobre o Mercado de Sistemas Embarcados
@@ -42,7 +41,7 @@ d) Dos softwares para sistemas embarcados - qual a principal ferramenta de
 codificação, principal sistema de controle de versão, e principal linguagem de
 programação?
 
->**RESPOSTA**:: A principal ferramenta de codificação no Brasil é o Visual Studio, enquanto o MATLAB é a ferramenta de design em nível de sistema usada. Os dois relatórios apontam o GIT como principal controle de versão e as linguagens de programação mais usadas são as linguagens C e C++ respectivamente.
+>**RESPOSTA**: A principal ferramenta de codificação no Brasil é o Visual Studio, enquanto o MATLAB é a ferramenta de design em nível de sistema usada. Os dois relatórios apontam o GIT como principal controle de versão e as linguagens de programação mais usadas são as linguagens C e C++ respectivamente.
 
 ***
 
@@ -51,7 +50,6 @@ mais citados na pesquisa?
 
 >**RESPOSTA**: Os microprocessadores/microcontroladores mais citados são o Raspberry Pi e Arduino, já os fabricantes são a STMicroeletronics e Microchip technology.
 
-***
 ***
 
 **Questão 3**: Descreva um produto disponível no mercado (pode ser algum do seu cotidiano) que
