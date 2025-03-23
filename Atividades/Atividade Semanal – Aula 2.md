@@ -50,6 +50,41 @@ RISC:
 - Tempo de execução das instruções depende da frequência do clock. - **(CISC)**
 ***
 
+3 - Abaixo é apresentado o diagrama de um microcontrolador. Qual a arquitetura utilizada e como chegamos a essa conclusão? Quantas portas I/O bidirecional e quantas linhas (bits/pinos) são endereçados de forma individual neste microcontrolador, com base neste diagrama?
+
+<div style="text-align: center;">
+    <img src="C:\Users\yurit\Desktop\USP\VSCode\APPLICATION_OF_MICROPROCESSORS\APPLICATION_OF_MICROPROCESSORS\Atividades\img_atv2.jpg" alt="Diagrama do Microcontrolador">
+</div><br>
+
+***
+
+4 - Análise inicial das diferenças entre microcontroladores e microprocessadores.
+
+- Escolha um microcontrolador entre as seguintes opções: 8051 (ex.: AT89C51); Arduino (AVR ATmega 328p).
+- Escolha um microprocessador entre as seguintes opções: (Motorola 68000; Intel 80486, ADM K5, Intel Pentium).
+
+Complete a tabela abaixo comparando os dispositivos escolhidos. Pesquisar e responder cada célula com palavra-chave e de forma objetiva. Pense em termos de desempenho, consumo de energia, custo, complexidade e exemplos de aplicação. O objetivo desta atividade não é responder certo ou errado, mas estimular a reflexão e pensamento a cerca das diferenças entre microcontroladores e microprocessadores.
+
+
+| Critério|Microcontrolador (8051)|Microprocessador (Intel Pentium)|
+|-                          |-                                  |-                                  |
+| Arquitetura e conjunto de instruções | CISC                   | CISC                              |
+| Foco                      | Sistemas embarcados               | Computadores pessoais             |
+| Eficiência Energética     | Alta                              | Baixa                             |
+| Complexidade e custo      | Baixa, baixo custo                | Alta, alto custo                  |
+| Memória                   | Integrada                         | Externa                           |
+| Impactos de uso           | Baixo consumo, menor desempenho   | Alto desempenho, maior consumo    |
+| Aplicações                | Controle industrial, automação    | Computação geral, jogos           |
+| Flexibilidade             | Menor flexibilidade               | Alta flexibilidade                |
+
+
+
+***
+
+<br>
+Reflexão: Recorra ao exemplo do microcontrolador aplicado ao controle de um elevador que foi apresentado em aula, disponível nas transparências do Cap. 1. De acordo com seu ponto de vista, quais as vantagens de se utilizar um microcontrolador para aquele tipo de aplicação e qual deve ser o “perfil” de um microcontrolador ideal para aquela aplicação do elevador em termos de capacidade da CPU (baixa, média ou alta), quantidade de bits no barramento, e precisão no tratamento das informações (operação somente com inteiros ou ponto flutuante?)
+
+
 <!--
 COMENTÁRIOS E NOTAS IMPORTANTES SOBRE O CAPITULO
 
