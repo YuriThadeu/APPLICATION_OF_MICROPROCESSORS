@@ -1,6 +1,6 @@
  # SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
 
-## Parte 1 - Sistemas Embarcados e Microcontroladores
+## Capitulo 1 - Sistemas Embarcados
 
 ###  Atividade Semanal – Aula 1
 
