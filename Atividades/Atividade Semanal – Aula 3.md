@@ -32,7 +32,7 @@ Qual a diferença entre as duas instruções acima? Tente refletir sobre a difer
 2 - A Figura abaixo mostra um microcontrolador genérico de 8 bits com 4 registradores internos à CPU, os quais são: Instruction Register (IR), Program Counter (PC), Accumulator (ACC) e Data Pointer (DPTR). Baseado na Figura abaixo, responda às questões com verdadeiro (V) ou Falso (F):
 
 <div style="text-align: center;">
-    <img src="C:\Users\yurit\Desktop\USP\VSCode\APPLICATION_OF_MICROPROCESSORS\APPLICATION_OF_MICROPROCESSORS\Atividades\img_atv3.png" alt=" ">
+    <img src="./img_atv3.jpg" alt="Microcontrolador Genérico">
 </div><br>
 
     ( ) Trata-se de um microcontrolador de arquitetura Harvard.

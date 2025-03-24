@@ -49,15 +49,18 @@ RISC:
 - Microcontroladores PIC, AVR, ARM - **(RISC)**
 - Tempo de execução das instruções depende da frequência do clock. - **(CISC)**
 ***
-
+<br>
 3 - Abaixo é apresentado o diagrama de um microcontrolador. Qual a arquitetura utilizada e como chegamos a essa conclusão? Quantas portas I/O bidirecional e quantas linhas (bits/pinos) são endereçados de forma individual neste microcontrolador, com base neste diagrama?
 
+<br>
 <div style="text-align: center;">
-    <img src="C:\Users\yurit\Desktop\USP\VSCode\APPLICATION_OF_MICROPROCESSORS\APPLICATION_OF_MICROPROCESSORS\Atividades\img_atv2.jpg" alt="Diagrama do Microcontrolador">
+    <img src="./img_atv2.jpg" alt="Diagrama do Microcontrolador">
 </div><br>
 
-***
+    A arquitetura usada é a de Von Neumann pois, mesmo tendo duas memorias, elas apresentam somente um barramento. O microcontrolador tem 4 portas I/O bidirecionais e 12 pinos são usados para endereçamento individual do microcontolador. 
 
+***
+<br>
 4 - Análise inicial das diferenças entre microcontroladores e microprocessadores.
 
 - Escolha um microcontrolador entre as seguintes opções: 8051 (ex.: AT89C51); Arduino (AVR ATmega 328p).
@@ -78,13 +81,17 @@ Complete a tabela abaixo comparando os dispositivos escolhidos. Pesquisar e resp
 | Flexibilidade             | Menor flexibilidade               | Alta flexibilidade                |
 
 
+<br>
 
 ***
 
 <br>
+
 Reflexão: Recorra ao exemplo do microcontrolador aplicado ao controle de um elevador que foi apresentado em aula, disponível nas transparências do Cap. 1. De acordo com seu ponto de vista, quais as vantagens de se utilizar um microcontrolador para aquele tipo de aplicação e qual deve ser o “perfil” de um microcontrolador ideal para aquela aplicação do elevador em termos de capacidade da CPU (baixa, média ou alta), quantidade de bits no barramento, e precisão no tratamento das informações (operação somente com inteiros ou ponto flutuante?)
 
+    Utilizar um microcontrolador para o controle de um elevador pode trazer várias vantagens, como redução de custos, baixo consumo de energia, menor necessidade de manutenção e facilidade na implementação de lógicas complexas. Além disso, permite o monitoramento remoto e diagnósticos do sistema. O microcontrolador ideal para essa aplicação deve ter uma CPU de capacidade média, pois as operações são relativamente simples e não exigem alto desempenho. Um barramento de 8 ou 16 bits já deve ser considerado suficiente para garantir uma comunicação eficiente entre a CPU, a memória e os periféricos. Em relação à precisão no tratamento das informações, como foi dado no exemplo em sala o microcontrolador deve ter suporte operações em ponto flutuante para o controle preciso de temperatura e velocidade dos motores. Mesmo que tenham comentado sobre isso durante a aula, não me parece ser tão necessário, uma ULA simples que faz somente operações com inteiros já deve ser suficiente para esse tipo de aplicação.
 
+***
 <!--
 COMENTÁRIOS E NOTAS IMPORTANTES SOBRE O CAPITULO
 
