@@ -57,7 +57,7 @@ RISC:
     <img src="./img_atv2.jpg" alt="Diagrama do Microcontrolador">
 </div><br>
 
-    A arquitetura usada é a de Von Neumann pois, mesmo tendo duas memorias, elas apresentam somente um barramento. O microcontrolador tem 4 portas I/O bidirecionais e 12 pinos são usados para endereçamento individual do microcontolador. 
+    A arquitetura usada é a de Von Neumann pois, mesmo tendo duas memorias, elas apresentam somente um barramento. O microcontrolador tem 4 portas I/O bidirecionais e 32 pinos são usados para endereçamento individual do microcontolador dado que cada porta tem I/O tem 8 bits(portas). Além dessas 32 portas, temos mais 8 portas para controle e alimentação.
 
 ***
 <br>
