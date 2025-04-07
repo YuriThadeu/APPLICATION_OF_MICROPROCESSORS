@@ -1,0 +1,295 @@
+ # SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
+
+## Capitulo 4 - Introdução à Programação para Microcontroladores
+
+###  Atividade Semanal – Aula 4
+
+ - NOME: Yuri Thadeu Oliveira Costa
+    - N° USP: 14754821
+ - NOME: Heloisa Oliveira de Carvalho
+    - N° USP: 13833960
+
+***
+
+
+### 1 Atividade
+
+O roteiro dos códigos do programa será apresentado abaixo, seguido pelo código gerado e as respostas para algumas perguntas relacionadas à atividade.
+
+
+### 1.1 Roteiro da atividade
+
+**Criação e Inicialização do Programa**
+
+- Criar um novo programa clicando em "New". 
+- Colocar a origem no endereço 0000h. 
+- Inicializar o programa com a label main.
+
+**Transferência de Dados**
+- Mover de forma imediata o valor 12 em hexadecimental (formato default – quando não for especificado qual formato, sempre usar este) para o acumulador (A). 
+- Mover de forma imediata o valor zero para A. 
+- Mover de forma imediata o valor 34 em hexadecimental para o registrador R2 no banco 0. 
+- Mover de forma imediata o valor 56 em decimal para o registrador B. 
+- Mover a porta P1 para o endereço de memória 0x40. 
+- Mover de forma direta o conteúdo da posição de memória 0x40 para o registrador R4 do banco 1. 
+- Mover o conteúdo de R4 para o endereço de memória 0x50. 
+- Mover de forma imediata o valor 0x50 em binário para R1. 
+- Mover R1 de forma indireta para o acumulador (usar @R1). 
+- Mover de forma imediata o valor 0x9A5B para o registrador DPTR.
+  
+**Instruções Aritméticas**
+- Mover de forma imediata o valor 2 para o ACC. 
+- Mover de forma imediata o valor 3 para B. 
+- Mover de forma imediata o valor 7 para R4 
+- Somar o conteúdo de R4 com o ACC. 
+- Decrementar 3 unidades do ACC. 
+- Incrementar 1 unidade em B. 
+- Subtrair A por B. 
+- Multiplicar A por B. 
+- Incrementar 2 unidades em B. 
+- Dividir A por B. 
+- Armazenar os conteúdos de A e B nos endereços de memória 0x70 e 0x71.
+
+**Instruções Lógicas e Booleanas**
+- Mover de forma imediata os valores 0b11001100 e 0b10101010 para A e B, respectivamente. 
+- Realizar AND lógico entre A e B. 
+- Rotacionar A à direita em 2 bits. 
+- Realizar o complemento de A. 
+- Rotacionar A à esquerda em 2 bits. 
+- Realizar OR lógico entre A e B. 
+- Realizar XOR entre A e B. 
+- Realizar SWAP de A. 
+- Em “bit field information” no simulador EdSim51 (onde geralmente é exibido PSW no formato binário), colocar ACC no lugar de PSW e observar os valores binários resultantes das operações neste registrador.
+
+**Instruções de Desvio Condicional e Incondicional**
+- Criar uma label de referência para início 
+- Limpar o ACC. 
+- Mover de forma imediata o valor 0x10 para R0. 
+- Saltar SE A = 0 para o bloco2 (label). 
+- Saltar SE A ≠ 0 para o bloco3. 
+- Consumir tempo de 1 μs sem nenhuma operação. 
+- Inicializar bloco2:
+        ▪ Mover R0 para A.
+        ▪ Saltar de forma incondicional para bloco1. 
+- Inicializar bloco3:
+        ▪ Decrementar e Saltar SE R0 ≠ 0 para bloco3.
+        ▪ Saltar de forma incondicional para inicio
+
+**Encerramento do Programa**
+- Segurar o programa na última linha. 
+- Encerrar o programa. 
+- Todos os programas podem ser estruturados em um único código e pode-se usar instruções de salto ou sub-rotinas para navegar entre eles (caso preferir, escrever os programas dos 5 itens anteriores em scripts separados).
+
+#### Depuração:
+
+Montar e Executar o Programa: 
+- Clique em "Assm" para montar o código. 
+- Execute cada linha clicando em "Step" e observe os resultados na memória RAM e nos registradores. 
+- Salve o programa.
+
+***
+
+### 1.2 Código gerado seguindo roteiro
+
+A partir desse roteiro, foi montato o seguinte codigo em Assembly para o 8051 usando o EdSim51:
+
+
+```Assembly
+ORG  0000h
+
+MAIN:
+JMP TRANSF_DADOS
+JMP INSTR_ARIT
+JMP INSTR_LBOL
+JMP INSTR_DCONDeINCOND
+FIM: ; Label referente ao Encerramento do Programa 
+    SJMP FIM
+;---------------------
+
+TRANSF_DADOS: ; Label referente a Transferência de Dados 
+MOV A, #12h ;1
+MOV A, #0h ;2
+MOV R2,#34h ;3
+MOV B, #56 ;4
+MOV 40h, P1 ;5
+SETB RS0 ;6
+CLR RS1 ;6
+MOV R4, 40h ;6
+MOV 50h, R4 ; 7
+MOV R1, #01010000b ; 8
+MOV A, @R1 ; 9
+MOV DPTR, #9A5BH ; 10
+
+JMP MAIN
+;---------------------
+
+INSTR_ARIT: ; Label referente a Instruções Aritméticas 
+MOV ACC, #02h ;1
+MOV B, #03h ;2
+MOV R4, #07h ;3
+ADD A, R4 ;4
+SUBB A, #03h ;5
+INC B ;6
+SUBB A, B ;7
+MUL AB ;8
+INC B ;9
+INC B ;9
+DIV AB ;10
+MOV 0x70, A  ;11
+MOV 0x71, B ;11
+
+JMP MAIN
+;------------------------
+
+INSTR_LBOL: ; Label referente a Instruções Lógicas e Booleanas 
+MOV A, #0CCh    ; 0b11001100 -> 1
+MOV B, #0AAh    ; 0b10101010 -> 1
+ANL A, B        ; A = A AND B => A = 10001000 -> 2
+RR A ;3
+RR A ;3
+CPL A ;4
+RL A ;5
+RL A ;5
+ORL A, B ;6
+XRL A, B ;7
+SWAP A ;8
+;9 - > fazer e explicar
+
+JMP MAIN
+;------------------------
+
+INSTR_DCONDeINCOND: ; Label referente a Instruções de Desvio Condicional e Incondicional 
+bloco1:;1
+CLR A ;2
+MOV R0, #10h ;3
+JZ bloco2 ;4
+JNZ bloco3 ;5
+NOP ;6
+bloco2: ;7
+    MOV A, R0 ;7
+    SJMP bloco1 ;7
+bloco3: ;8
+    DJNZ R0, bloco3 ;8
+    SJMP bloco1 ;8
+
+JMP MAIN
+;------------------------
+```
+
+
+**OBS: Os valores numéricos comentados ao lado dos codigos é a ordem proporcional a posição da pergunta no roteiro.**
+
+***
+### 1.3 Questões e Respostas
+
+Sobre Transferência de Dados:
+
+(a) Qual foi o tempo gasto em cada linha de instrução e quantos ciclos de máquina esse programa contém? Justifique sua resposta.
+
+    RESPOSTA: 
+
+(b) O que aconteceu ao mover uma porta inteira de 8 registradores (ex.: MOV A, P1) para um destino e por que seu valor é FF?
+
+    RESPOSTA: 
+
+(c) Qual valor apareceu no acumulador após ter movido R1 de forma indireta para ele?
+
+    RESPOSTA: 
+
+(d) Por que foi possível mover um valor de 4 dígitos para DPTR? Em quais registradores especiais do simulador foi possível verificar mudanças quando essa operação foi realizada? Qual o maior valor que pode ser movido para DPTR em hexadecimal?
+
+    RESPOSTA: 
+
+Sobre Instruções Aritméticas:
+
+(e) Faça os seguintes testes em um programa a parte:
+    
+1. Por que ao mover o valor 4 para ACC, o bit menos significativo de PSW resulta em 1; e ao mover o valor 3, esse bit resulta em 0?
+    
+        RESPOSTA: 
+
+2. Tente decrementar 1 unidade de algum registrador ou endereço de memória cujo valor é igual a zero (ex.: DEC A, DEC Rn, ou DEC 60h, sendo A, Rn, ou 60h iguais a zero). Por que a operação resulta em FF?
+   
+        RESPOSTA: 
+
+
+
+***
+
+### 2 Atividade
+
+O roteiro dos códigos do programa será apresentado abaixo, seguido pelo código gerado e comentado.
+
+### 2.1 Roteiro da atividade
+
+Verificar sequencialmente o conteúdo das posições de memória de 20h até 23h (por exemplo) e incrementar um registrador com a quantidade de valores menores do que #45h (por exemplo) contidos nestas posições de memória.
+
+
+ - Criar um novo programa
+
+ - Colocar a origem no endereço 00h
+
+ - Saltar para a label do programa principal (main)
+
+ - Colocar a origem em 33h
+
+ - Na label principal, inicializar R0 com valor #20h; e R1 com #0;
+
+ - Criar uma label chamada LOOP (ou com qualquer outro nome – será um ponto de retorno)
+
+ - Mover R0 de forma indireta para A;
+
+ - Subtrair #45h de A
+
+ - Saltar de forma condicional, se não houver carry, para uma terceira label (operação com bit - verificar o bit de flag carry de PSW e salta se = 0)
+
+ - Incrementar 1 unidade em R1 (ou seja, se #45h for maior do que A, o resultado da subtração é negativo e carry será = 1, portanto o salto da linha anterior não irá acontecer e o programa executará essa linha, sinalizando a quantidade de valores maiores do que #45h)
+
+ - Atribuir a terceira label, para onde o programa irá saltar segundo a condição atribuída anteriormente
+
+ - Incrementar 1 unidade em R0 (incrementa o ponteiro para próxima posição de memória)
+
+ - Compara R0 com #24h e salta para LOOP se não forem iguais (verificar se chegou na última posição de memória, 23h +1, a ser testada)
+
+ - Nenhuma operação
+
+ - Segurar o programa nesta linha
+
+ - Depurar o programa e descrever seu comportamento (atribua manualmente valores aleatórios, maiores e menores do que #45h, nas posições de memória de 20h à 23h para testar o programa no simulador EdSim51, verificando ao final se a quantidade em R1 está correta)
+
+ - Salvar o programa
+
+ - Formato de resposta: apresentar as linhas de código comentadas.
+
+### 1.2 Código gerado seguindo roteiro
+
+A partir desse roteiro, foi montato o seguinte codigo em Assembly para o 8051 usando o EdSim51:
+
+```Assembly
+;Verificação sequencial de posições de memória.
+
+ORG 0000h ; Colocando a origem no endereço 00h
+SJMP main; Saltando para a main
+ORG 33h; Redefinindo a origem 33h
+
+MAIN:
+MOV R0, #20h; R0 recebe o valor 20h é o ponteiro para acessar a memória indiretamente
+MOV R1, #00h; R1 inicia com 0 e contar quantos valores são maiores que 45h
+
+LOOP:
+MOV  A, @R0; Movendo de forma indireta o Registrador 0
+SUBB A, #45h; Subtraindo 45h de A
+JNC sem_carry ; Se NÃO houver carry “A” maior ou igual a  45h, salta para  sem_carry
+INC R1 ; Se houve carry “A” menor que 45h, incrementa o contador R1
+
+SEM_CARRY:
+INC R0; Vai para a próxima posição de memória
+SJMP loop; Salto incondicional para o início do loop
+CJNE R0, #24h, loop ; Se ainda não chegou na posição final 24h, volta pro loop
+
+FIM:
+    SJMP FIM; Trava o programa
+
+END
+```
+
