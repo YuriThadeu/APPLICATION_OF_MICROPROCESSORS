@@ -16,6 +16,7 @@
 
 O roteiro dos códigos do programa será apresentado abaixo, seguido pelo código gerado e as respostas para algumas perguntas relacionadas à atividade.
 
+***
 
 ### 1.1 Roteiro da atividade
 
@@ -228,10 +229,13 @@ Sobre Instruções Aritméticas:
 
 
 ***
+***
 
 ### 2 Atividade
 
 O roteiro dos códigos do programa será apresentado abaixo, seguido pelo código gerado e comentado.
+
+***
 
 ### 2.1 Roteiro da atividade
 
@@ -273,6 +277,8 @@ Verificar sequencialmente o conteúdo das posições de memória de 20h até 23h
  - Salvar o programa
 
  - Formato de resposta: apresentar as linhas de código comentadas.
+
+***
 
 ### 2.2 Código gerado seguindo roteiro
 
