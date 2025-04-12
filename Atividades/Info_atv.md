@@ -173,6 +173,10 @@ que deve ser reservada para a pilha.
 </div><br>
 
 
+#### OBSERVAÇÕES SOBRE AS QUESTÕES
+
+
+
 ***
 ***
 
