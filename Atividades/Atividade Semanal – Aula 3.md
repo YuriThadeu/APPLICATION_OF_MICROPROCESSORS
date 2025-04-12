@@ -8,6 +8,7 @@
  - N° USP: 14754821
 
 ***
+***
 
 1 - No simulador EdSim51, digite e execute (clicando em “Assm”) as instruções abaixo:
 
@@ -33,6 +34,8 @@ Qual a diferença entre as duas instruções acima? Tente refletir sobre a difer
 
     Assim como no primeiro exemplo, os dois comandaos fazem essencialmente a mesma coisa. Entretanto nesse caso, A é o nome direto de um registrador e ACC é o nome do endereço na memoria do registrador, como comentei anteriormente, acessar a memória diretamente demanda mais tempo, ou ciclos de maquina, que acessar o registrador.
 
+***
+
 2 - A Figura abaixo mostra um microcontrolador genérico de 8 bits com 4 registradores internos à CPU, os quais são: Instruction Register (IR), Program Counter (PC), Accumulator (ACC) e Data Pointer (DPTR). Baseado na Figura abaixo, responda às questões com verdadeiro (V) ou Falso (F):
 
 <div style="text-align: center;">
@@ -50,6 +53,7 @@ Qual a diferença entre as duas instruções acima? Tente refletir sobre a difer
     (F) O registrador DPTR é um ponteiro que aponta para a última instrução lida da memória.
     (F) Para esse microcontrolador, o registrador DPTR deve ser de 10 bits.
 
+***
 
 3 - Quanto às portas paralelas de um microcontrolador:
 

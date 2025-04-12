@@ -6,3 +6,4 @@ Este repositório contém os códigos, projetos e documentações desenvolvidos 
 
 O objetivo deste repositório é centralizar e organizar os materiais desenvolvidos durante a disciplina, facilitando o acompanhamento do progresso, a colaboração e a reutilização dos códigos e circuitos estudados.
 
+**NOTA:** O Arquivo info_atv tem comentários e informações importantes sobre as atividades e trabalhos executados.

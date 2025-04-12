@@ -8,6 +8,7 @@
  - N° USP: 14754821
 
 ***
+***
 
 1 - Assinale V para verdadeiro e F para falso nas afirmações abaixo:
 
@@ -38,8 +39,8 @@ Verdadeiro, Vide slide 26
 
 ***
 
-2 - Indique quais afirmativas se aplicam a uma instrução CISC e quais a uma instrução
-RISC:
+2 - Indique quais afirmativas se aplicam a uma instrução CISC e quais a uma instrução RISC:
+
 - Os programas são mais complexos - **(CISC)**
 - A maioria das instruções tem a mesma duração - **(RISC)**
 - Mais instruções disponíveis - **(CISC)**
@@ -54,7 +55,7 @@ RISC:
 
 <br>
 <div style="text-align: center;">
-    <img src="./img_atv2.jpg" alt="Diagrama do Microcontrolador">
+    <img src="./imgs/img_atv2.jpg" alt="Diagrama do Microcontrolador">
 </div><br>
 
     A arquitetura usada é a de Von Neumann pois, mesmo tendo duas memorias, elas apresentam somente um barramento. O microcontrolador tem 4 portas I/O bidirecionais e 32 pinos são usados para endereçamento individual do microcontolador dado que cada porta tem I/O tem 8 bits(portas). Além dessas 32 portas, temos mais 8 portas para controle e alimentação.

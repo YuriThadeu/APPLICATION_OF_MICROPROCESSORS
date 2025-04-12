@@ -10,6 +10,7 @@
     - N° USP: 13833960
 
 ***
+***
 
 
 ### 1 Atividade
@@ -103,6 +104,7 @@ MAIN:
 
 FIM: ; Label referente ao Encerramento do Programa 
     SJMP FIM ;Loop infinito pra manter o programa no fim
+    JMP $; Trava  o programa nessa linha
 
 ;---------------------
 
