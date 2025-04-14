@@ -175,7 +175,24 @@ que deve ser reservada para a pilha.
 
 #### OBSERVAÇÕES SOBRE AS QUESTÕES
 
+	– Pilha é memória tipo LIFO (Last In First Out) ou FILO (First In Last Out), não FIFO.
 
+	– A pilha guarda endereços de retorno de sub-rotinas e interrupções.
+
+	– Stack Pointer aponta para endereço na RAM, não ROM.
+
+	– As instruções PUSH e POP são exclusivas para pilha.
+
+	– A instrução CALL não é usada para indicar desvio de interrupções. Para interrupções usa-se um vetor pré-definido específico (endereços fixos). CALL é usado apenas para chamar sub-rotinas diretamente.
+
+	– RET carrega endereço da pilha no registrador PC, retomando a execução anterior.
+
+	– O ponteiro SP é normalmente menor que o barramento de endereço da CPU. Por exemplo, em microcontroladores típicos como o 8051, SP é de 8 bits, mas o barramento de endereços pode ser maior (por exemplo, 16 bits). Além disso, SP não define a área da pilha, mas aponta a posição atual dela.
+
+	– Memória da pilha é RAM, não composta diretamente por flip-flops tipo D. Flip-flops tipo D são usados diretamente em registradores internos, não na memória RAM da pilha.
+
+
+Os códigos da atividade foram feito a partir dos modelos que estão no slide 4 nas paginas 36, 37 e 38.
 
 ***
 ***

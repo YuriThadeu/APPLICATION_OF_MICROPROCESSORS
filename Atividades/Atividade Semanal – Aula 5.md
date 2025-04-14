@@ -170,7 +170,7 @@ FIM:
 ```
 
 
-		RESPOSTA: Se os Led's acendem quando o nível logico é baixo, o circuito está usando um resitor Pull-Up. Agora vou explicar comentando em cada linah do programa.
+		RESPOSTA: Se os Led's acendem quando o nível logico é baixo, o circuito está usando um resitor Pull-Up. Agora vou explicar comentando em cada linha do programa.
 
 	ORG 0000h	;Define o inicio do codigo do programa
 
