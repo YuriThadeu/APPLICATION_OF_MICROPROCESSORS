@@ -7,6 +7,8 @@ Este arquivo tem como objetivo reunir informações relevantes que fundamentaram
 ***
 ***
 
+# Microcontrolador 8051
+
 ## ATIVIDADE 1
 
 Slide da aula [Neste Link](https://edisciplinas.usp.br/pluginfile.php/8786785/mod_resource/content/3/SEL0433_Cap1_Sistemas_Embarcados.pdf)
@@ -198,7 +200,11 @@ Os códigos da atividade foram feito a partir dos modelos que estão no slide 4 
 ***
 
 ## TRABALHO 1
-Esse [video](https://www.youtube.com/watch?v=cResQ_x7LXA) me ajudou bastante a entender algumas coiass sobre o display. O restante das coisas eu consegui a partir dos aquivos dos slides das aulas 3 e 4. Além disso usei algumas coisas presentes nos [Exemplos de códigos úteis](Projetos\exemplos_de_codigos) apresentados pelo professor.
+Esse [video](https://www.youtube.com/watch?v=cResQ_x7LXA) me ajudou bastante a entender algumas coiass sobre o display. O restante das coisas eu consegui a partir dos aquivos dos slides das aulas 3 e 4. Além disso usei algumas coisas presentes nos [Exemplos de códigos úteis](Trabalhos\Projeto 1\exemplos_de_codigos) apresentados pelo professor.
 
 ***
 ***
+
+# Atividades do Microcontrolador PIC
+
+## ATIVIDADE 6
