@@ -134,7 +134,7 @@ sequenciais se necessário (instruções Push e Pop);
 que deve ser reservada para a pilha.
 
 <div style="text-align: center;">
-	<img src="./imgs/img_atv5_1.png" alt="Representação da RAM e do PUSH e POP">
+	<img src="./8051/imgs/img_atv5_1.png" alt="Representação da RAM e do PUSH e POP">
 </div><br>
 
  - Um dos usos mais importantes para as pilhas são as chamadas de sub-rotinas usando CALL e RET por exemplo.
@@ -142,7 +142,7 @@ que deve ser reservada para a pilha.
    - RET solicita o retorno ao programa principal (ultima instrução), resgatando da pilha o endereço de retorno e salva o regitrador PC (Program Counter).
 
 <div style="text-align: center;">
-	<img src="./imgs/img_atv5_2.png" alt="Diagrama do funcionamento do CALL e RET">
+	<img src="./8051/imgs/img_atv5_2.png" alt="Diagrama do funcionamento do CALL e RET">
 </div><br>
 
 
@@ -164,14 +164,14 @@ que deve ser reservada para a pilha.
 
 
 <div style="text-align: center;">
-	<img src="./imgs/img_atv5_3.png" alt="Exemplo de circuito com resitores Pull-up e Pull-down">
+	<img src="./8051/imgs/img_atv5_3.png" alt="Exemplo de circuito com resitores Pull-up e Pull-down">
 </div><br>
 
 
 #### Display de 7 segmentos
 
 <div style="text-align: center;">
-	<img src="./imgs/img_atv5_4.png" alt="Display de 8 segmentos">
+	<img src="./8051/imgs/img_atv5_4.png" alt="Display de 8 segmentos">
 </div><br>
 
 
@@ -200,7 +200,7 @@ Os códigos da atividade foram feito a partir dos modelos que estão no slide 4 
 ***
 
 ## TRABALHO 1
-Esse [video](https://www.youtube.com/watch?v=cResQ_x7LXA) me ajudou bastante a entender algumas coiass sobre o display. O restante das coisas eu consegui a partir dos aquivos dos slides das aulas 3 e 4. Além disso usei algumas coisas presentes nos [Exemplos de códigos úteis](Trabalhos\Projeto 1\exemplos_de_codigos) apresentados pelo professor.
+Esse [video](https://www.youtube.com/watch?v=cResQ_x7LXA) me ajudou bastante a entender algumas coiass sobre o display. O restante das coisas eu consegui a partir dos aquivos dos slides das aulas 3 e 4. Além disso usei algumas coisas presentes nos [Exemplos de códigos úteis](Trabalhos\Projeto1\exemplos_de_codigos) apresentados pelo professor.
 
 ***
 ***
