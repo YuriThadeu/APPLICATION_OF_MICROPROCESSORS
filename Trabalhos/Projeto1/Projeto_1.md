@@ -35,7 +35,7 @@ Escrever um programa em Assembly para 8051 no simulador EdSim51 que atenda os se
 ***
 ### Informações úteis
 
-Utilizaremos o display número 3, configurado a partir da porta P3, disponível no simulador EdSim51DI. Para isso, é importante compreender alguns aspectos sobre o funcionamento do display de 7 segmentos configurado a partir da porta P1. Primeiramente, ele possui um comportamento do tipo PULL-UP, o que significa que seus LEDs permanecem apagados quando o valor lógico é 1. Além disso, é essencial entender a distribuição dos LEDs, conforme mostrado abaixo. Outras informações detalhadas sobre o display podem ser encontradas no arquivo [Informações de Atividades](Atividades\Info_atv.md), disponível no tópico da Atividade 5.
+Utilizaremos o display número 3, configurado a partir da porta P3, disponível no simulador EdSim51DI. Para isso, é importante compreender alguns aspectos sobre o funcionamento do display de 7 segmentos configurado a partir da porta P1. Primeiramente, ele possui um comportamento do tipo PULL-UP, o que significa que seus LEDs permanecem apagados quando o valor lógico é 1. Além disso, é essencial entender a distribuição dos LEDs, conforme mostrado abaixo. Outras informações detalhadas sobre o display podem ser encontradas no arquivo [Informações de Atividades](.\Atividades\Info_atv.md), disponível no tópico da Atividade 5.
 
 
 
