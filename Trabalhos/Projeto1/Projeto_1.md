@@ -2,7 +2,7 @@
 
 ## Revisão de Organização de Computadores e Introdução aos microcontroladores
 
-### Projeto Preliminar 1: Cronômetro Digital
+### Projeto Preliminar 1: Cronômetro Digital com Assembly e 8051
 
  - NOME: Yuri Thadeu Oliveira Costa
     - N° USP: 14754821
