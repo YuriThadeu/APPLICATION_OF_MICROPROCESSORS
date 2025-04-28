@@ -23,8 +23,9 @@
 ### Requisitos do projeto
 
 Escrever um programa em Assembly para 8051 no simulador EdSim51 que atenda os seguintes requisitos:
- - Ao pressionar um botão/chave (por ex.: SW0), um Display de 7 segmentos deve mostrar a contagem de números na sequência de 0 a 9 em loop (ao chegar em 9, a contagem é reiniciada automaticamente), com intervalo de tempo de 0,25 s.
- - Quando um segundo botão/chave (por ex. SW1) for pressionado, tal ação deve alterar o intervalo de tempo da contagem deste mesmo display para 1s, isto é, a contagem de 0 a 9 em loop continuará, porém, o display passará a contar em um período de tempo mais lento.
+ - Ao pressionar um botão/chave, um Display de 7 segmentos deve mostrar a contagem de números na sequência de 0 a 9 em loop (ao chegar em 9, a contagem é reiniciada automaticamente), com intervalo de tempo de 0,25 s.
+ - Quando um segundo botão/chave for pressionado, tal ação deve alterar o intervalo de tempo da contagem deste mesmo display para 1s, isto é, a contagem de 0 a 9 em loop continuará, porém, o display passará a contar em um período de tempo mais lento.
+ - Os botões usados foram o SW0, para a contagem de 0,25s e o botão SW1 para a contagem de 1s
  - Caso SW0 seja pressionado novamente, a contagem de números retorna ao intervalo de tempo de 0,25s e vice-versa, mantendo a execução do programa em loop.
  - Ao executar o programa pela primeira vez (após clicar em “Run”), a contagem não se inicia automaticamente e o display estará desligado. Somente quando uma das chaves SW0 ou SW1 for pressionada é que a contagem se inicia e o display passa a mostrar os valores de 0 a 9 nos intervalos de tempo mencionados anteriormente atribuídos para cada chave.
  - Usar sub-rotinas de delay para gerar as bases de tempo do cronômetro e promover a mudança de período de tempo solicitada, bem como instruções condicionais de verificação de acionamento das chaves.
@@ -54,7 +55,7 @@ Segmentos conectados aos LEDs da PORTA P1
  P1 = 7  6 5 4 3 2 1 0  
  bit = 1 (apagado) e bit = 0 (acende)
 
-### TABELA DO DISPLAY 7 SEGMENTOS
+             TABELA DO DISPLAY 7 SEGMENTOS
 
 | DIG | DP  | G   | F   | E   | D   | C   | B   | A   | HEX |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -98,7 +99,7 @@ TESTA_SW1:
 
 ORG 33h
 INICIO:
-   CALL CHECK_BOTOES      ; Verifica os botões e ajusta o tempo
+   CALL CHECK_BOTOES     ; Verifica os botões e ajusta o tempo
    OBS: Certifique-se de prefixar os valores hexadecimais que começam com letras (como "A4h" ou "F9h") com "0" (por exemplo, "0A4h" ou "0F9h") para evitar problemas de interpretação no simulador EdSim51DI.
 
    MOV A, #0C0h          ; INICIA EM ZERO 
@@ -181,7 +182,7 @@ DELAY:
 ; Delay curto (2 * 5 * 100 * 250 = 250.000 us ou 0,25 segundos)
 ; -----------------------------------------------
 DELAY_CURTO:
-   MOV R2, #5                ; Número de repetições para loop curto (5)
+   MOV R2, #5               ; Número de repetições para loop curto (5)
    LOOP_10:
       MOV R3, #100          ; Número de repetições para loop intermediário (100)
    LOOP_100:
@@ -196,7 +197,7 @@ DELAY_CURTO:
 ; Delay longo (2 * 20 * 100 * 250 = 1.000.000 us ou 1 segundo)
 ; -----------------------------------------------
 DELAY_LONGO:
-   MOV R2, #20                ; Número de repetições para loop longo (20)
+   MOV R2, #20               ; Número de repetições para loop longo (20)
    LOOP_40:
       MOV R3, #100           ; Número de repetições para loop intermediário (100)
    LOOP_100_long:
