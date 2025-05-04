@@ -208,3 +208,25 @@ Esse [video](https://www.youtube.com/watch?v=cResQ_x7LXA) me ajudou bastante a e
 # Atividades do Microcontrolador PIC
 
 ## ATIVIDADE 6
+
+Slide da aula [Neste Link](https://edisciplinas.usp.br/pluginfile.php/8786803/mod_resource/content/2/SEL0433_Cap5_Microcontroladores_PIC_Hardware.pdf)
+
+O PIC (Peripheral Interface Computer) tem Alta velocidade de processamento devido a arquitetura Harvard (dados e instruções em barramentos diferentes) e conjunto de instruções RISC (conjuntos de 35 e de 76 instruções), com recursos de programação por Memória flash, EEPROM, operando com tensões de 1.8 a 6V. Uma visão geral dos periféricos são:
+
+* CPU (Harvard/RISC), interrupções, “watchdog timer” (WDT),
+
+* Portas paralelas de entrada e saída (PORT)
+
+* Cristal oscilador, memórias de código (EEPROM/Flash) e de dados (RAM) e registadores SFR,
+
+* Circuito de reset,Vcc, GND
+
+* Módulo de com. serial, conversor A/D, Timers, CCP (módulo de captura, comparação e modulação por largura de pulso -PWM).
+
+![Pretiféricos_Pic](\..\Atividades\PIC\imgs\perifericos_pic.png)
+
+#### OBS: No PIC as portas são identificadas como: PORT A, B, C, D, E
+
+Ele tem entradas Vss (Source) e Vdd (Drain) porque são construidos com transistores com tecnologia CMOS. Vdd é equivalente ao Vcc e o Vss é equivalente ao Gnd.
+
+Vcc e GND são associados a circuitos bipolares, enquanto Vdd e Vss são associados a física do MOSFETs
