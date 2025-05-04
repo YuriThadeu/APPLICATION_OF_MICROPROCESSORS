@@ -14,8 +14,9 @@
 
 Após analisar a plataforma EasyPIC v7 fisicamente durante a aula correspondente e com base no material relacionado, faça um breve resumo sobre os principais recursos, compatibilidade paran microcontroladores PIC, gravação e periféricos disponíveis nesta placa, listando suas principais funcionalidades para prototipagem em sistemas embarcados.
 
-    RESPOSTA: A EasyPIC v7 combina alto alcance de microcontroladores PIC de 8 bits com programador USB embarcado, seleção de tensão e um rico conjunto de periféricos didáticos (botões, LEDs, displays e ADC) — tudo acessível via conectores múltiplos e mikroBUS. Isso torna a placa ideal para prototipagem rápida de sistemas embarcados, testes de firmware em diferentes PICs e integração de módulos externos sem necessidade de solda ou ferramentas adicionais.
-
+```
+RESPOSTA: A EasyPIC v7 combina alto alcance de microcontroladores PIC de 8 bits com programador USB embarcado, seleção de tensão e um rico conjunto de periféricos didáticos (botões, LEDs, displays e ADC) — tudo acessível via conectores múltiplos e mikroBUS. Isso torna a placa ideal para prototipagem rápida de sistemas embarcados, testes de firmware em diferentes PICs e integração de módulos externos sem necessidade de solda ou ferramentas adicionais.
+```
 ***
 
 #### Questão 2
@@ -24,8 +25,10 @@ Em um projeto industrial, é necessário armazenar parâmetros de calibração d
 
 a) Na EEPROM, pois é uma memória não volátil e permite regravações sem afetar a execução do programa.
 
-    COMENTÁRIO: **RESPOSTA CERTA**.
-    Segundo o Slide 21, o PIC18F4550 possui 256 bytes de memoria EEPROM interna não volátil usados para guardar parâmetros que não podem ser apagados depois que o microcontrolador é desligado. A memoraia EEPROM tem acesso de leitura/escrita em tempo de execução e sem interferir no código residente na flash .
+```
+COMENTÁRIO: **RESPOSTA CERTA**.
+Segundo o Slide 21, o PIC18F4550 possui 256 bytes de memoria EEPROM interna não volátil usados para guardar parâmetros que não podem ser apagados depois que o microcontrolador é desligado. A memoraia EEPROM tem acesso de leitura/escrita em tempo de execução e sem interferir no código residente na flash.
+```
 
 b) Na memória de programa (flash), pois a escrita e leitura nela são mais rápidas do que na EEPROM
 
