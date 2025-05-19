@@ -38,16 +38,80 @@
 
 ### Pós-aula
 
- - Altere a lógica do programa do Exemplo 1 para piscar o LED a cada 500 ms (usando a função delay) enquanto o botão se manter pressionado. Ao soltar o botão, o LED deve ser desligado. Realize a simulação no SimulIDE e utilize um osciloscópio digital (recurso disponível no simulador) para verificar o sinal de saída. Conectar o osciloscópio no pino correspondente ao LED no microcontrolador PIC.
+1º - Altere a lógica do programa do Exemplo 1 para piscar o LED a cada 500 ms (usando a função delay) enquanto o botão se manter pressionado. Ao soltar o botão, o LED deve ser desligado. Realize a simulação no SimulIDE e utilize um osciloscópio digital (recurso disponível no simulador) para verificar o sinal de saída. Conectar o osciloscópio no pino correspondente ao LED no microcontrolador PIC.
 
- - Conforme exemplo demonstrado em aula (Exemplo 2), implementar o algoritmo utilizado para tratar o efeito bounce presente no programa do Exemplo 1. Compilar o programa no MikroC PRO for PIC e implementar o circuito no Simul IDE carregando o firmware (arquivo hex gerado na compilação). Ajustar o clock do microcontrolador PIC18F4550
-para 8 MHz e o montar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
+2º - Conforme exemplo demonstrado em aula (Exemplo 2), implementar o algoritmo utilizado para tratar o efeito bounce presente no programa do Exemplo 1. Compilar o programa no MikroC PRO for PIC e implementar o circuito no Simul IDE carregando o firmware (arquivo hex gerado na compilação). Ajustar o clock do microcontrolador PIC18F4550 para 8 MHz e o montar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
 
 
- - Implemente no SimulIDE o programa no Exemplo 3 – Display de 7 Segmentos. Para tanto, realize as ligações de um display de 7 segmentos disponível no simulador no PORTD do microcontrolador. Ajustar o clock do microcontrolador PIC18F4550 para 8 MHz e o ligar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
+3º - Implemente no SimulIDE o programa no Exemplo 3 – Display de 7 Segmentos. Para tanto, realize as ligações de um display de 7 segmentos disponível no simulador no PORTD do microcontrolador. Ajustar o clock do microcontrolador PIC18F4550 para 8 MHz e o ligar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
 
 ***
 ***
 
 ### RESULTADOS
+
+##### 1º Parte
+
+```c
+void main(){
+    #ifdef P18F45K22
+        ANSELB = 0;
+        ANSELD = 0;
+    #else
+        ADCON1 |= 0x0F;
+    #endif
+
+    TRISB.RB0 = 1;
+    PORTB.RB0 = 1;
+    TRISD.RD0 = 0;
+    PORTD.RD0 = 0;
+
+    while(1){
+        if(PORTB.RB0 == 0){
+            while (PORTB.RB0 == 0 ){
+                PORTD.RD0 =~ LATD.RD0;
+                Delay_ms(500);
+            }
+        }
+        PORTD.RDO = 0; 
+    } //while
+} // main
+```
+
+##### 2º Parte
+
+```c
+void main(){
+    #ifdef P18F45K22
+        ANSELB = 0;
+        ANSELD =0;
+    #else
+        ADCON1 |= 0x0F;
+    #endif
+
+    TRISB.RB0 = 1;
+    PORTB.RB0 = 1;
+    TRISD.RD0 = 0;
+    PORTD.RD0 = 0;
+
+    while(1){
+        //  
+        if(PORTB.RB0 == 0 && FlagAux == 0){
+            FlagAux = 1;
+            Delay_ms(40);
+            // 
+            while (PORTB.RB0 == 0){
+                PORTD.RD0 =~ LATD.RD0;
+                Delay_ms(500);
+            }
+        }
+        // 
+        if(PORTB.RB0 == 1 && FlagAux == 1){
+            FlagAux = 0;
+            Delay_ms(40);
+            PORTD.RDO = 0;
+        } 
+    } //while
+} // main
+```
 
