@@ -50,7 +50,7 @@
 
 ### RESULTADOS
 
-##### 1º Parte
+##### Questão 1
 
 ```c
 void main(){
@@ -70,7 +70,7 @@ void main(){
         if(PORTB.RB0 == 0){
             while (PORTB.RB0 == 0 ){
                 PORTD.RD0 =~ LATD.RD0;
-                Delay_ms(500);
+                Delay_ms(500); //em nanossegundos
             }
         }
         PORTD.RDO = 0; 
@@ -78,7 +78,7 @@ void main(){
 } // main
 ```
 
-##### 2º Parte
+##### Questão 2
 
 ```c
 void main(){
@@ -115,3 +115,4 @@ void main(){
 } // main
 ```
 
+##### Questão 3
