@@ -4,7 +4,7 @@
 
 ###  Atividade Semanal – Aula 7
 
- - NOME: Yuri Thadeu Oliveira Costa   
+ - NOME: Yuri Thadeu Oliveira Costa
  - N° USP: 14754821
   
 ***
@@ -32,7 +32,7 @@
 
 - Explorar a criação e configuração de um novo projeto no MikroC PRO for PIC, com especial atenção voltada para: seleção do “device”, configuração do clock, configuration bits (tipo de cristal, fonte de clock, resets, desabilita comparadores, watchdog timer). Digitar um programa para realizar alguns testes.
 
-- Explorar recursos do MikroC PRO for PIC: Tools – Start Debugger (inicia depuração de um programa compilado – verificar depuração em Watch Values – add variáveis de interesse, executar linha por linha com F7, inserir breakpoints com duplo clique na linha. Explorar os exemplos 1, 2 e 3.
+- Explorar recursos do MikroC PRO for PIC: Tools – Start Debugger (inicia depuração de um programa compilado) – verificar depuração em Watch Values – add variáveis de interesse, executar linha por linha com F7, inserir breakpoints com duplo clique na linha. Explorar os exemplos 1, 2 e 3.
 
 - Ilustrar no SimulIDE (para executá-lo no PC do laboratório: “C – Arquivos de Programas – SimulIDE – Bin – Simulide.exe”) a conexão de um botão no pino B0 do microcontrolador PIC18F4550 na configuração Pull-dowm (externo), o qual ao ser pressionado deverá mudar o estado de um LED conectado ao pino D0 (não esquecer do resistor limitador para o LED). Simule o circuito carregando o firmware (arquivo hex) gerado na compilação do programa em Linguagem C que atende essa lógica, a qual foi realizada anteriormente no software no software MikroC PRO for PIC. Configurar o valor do resistor e a frequência do clock do microcontrolador.
 
@@ -41,7 +41,6 @@
 1º - Altere a lógica do programa do Exemplo 1 para piscar o LED a cada 500 ms (usando a função delay) enquanto o botão se manter pressionado. Ao soltar o botão, o LED deve ser desligado. Realize a simulação no SimulIDE e utilize um osciloscópio digital (recurso disponível no simulador) para verificar o sinal de saída. Conectar o osciloscópio no pino correspondente ao LED no microcontrolador PIC.
 
 2º - Conforme exemplo demonstrado em aula (Exemplo 2), implementar o algoritmo utilizado para tratar o efeito bounce presente no programa do Exemplo 1. Compilar o programa no MikroC PRO for PIC e implementar o circuito no Simul IDE carregando o firmware (arquivo hex gerado na compilação). Ajustar o clock do microcontrolador PIC18F4550 para 8 MHz e o montar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
-
 
 3º - Implemente no SimulIDE o programa no Exemplo 3 – Display de 7 Segmentos. Para tanto, realize as ligações de um display de 7 segmentos disponível no simulador no PORTD do microcontrolador. Ajustar o clock do microcontrolador PIC18F4550 para 8 MHz e o ligar o botão na configuração pull-up (ajustar o valor do resistor de pull-up para 10 kΩ) no SimulIDE.
 
