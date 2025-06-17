@@ -1,11 +1,11 @@
- # SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
+# SEL0433 - APLICAÇÃO DE MICROPROCESSADORES
 
 ## Capitulo 5 (Parte 2) - Microcontroladores PIC e Programação em Linguagem C
 
-###  Atividade Semanal – Aula 7
+### Atividade Semanal – Aula 7
 
- - NOME: Yuri Thadeu Oliveira Costa
- - N° USP: 14754821
+- NOME: Yuri Thadeu Oliveira Costa
+- N° USP: 14754821
   
 ***
 ***
@@ -13,7 +13,6 @@
 ### OBJETIVOS
 
 ### Durante a aula
-
 
 - Fazer o download da pasta com exemplos de códigos em linguagem C;
 
@@ -24,7 +23,6 @@
 - Na opção “Open Project”, abrir o [Exemplo_1_tecla_LED](Atividades/PIC/Exemplos_Capitulo_6/Exemplo_1_Tecla_LED/LED_Blink1.mcppi) (arquivo na extensão “.mcppi”)
 
 - Conectar o KitEasyPIC ao PC por meio do cabo USB e ligar a placa (verificar se os jumpers de alimentação estão conectados à USB e ao 5V na placa).
-
 
 - Compilar e gravar o programa do [Exemplo_1_tecla_LED](Atividades/PIC/Exemplos_Capitulo_6/Exemplo_1_Tecla_LED/LED_Blink1.mcppi) no kit e verificar seu funcionamento (pressionar botão RB0 e verificar LED RD0). Se atentar as configurações: manter RB0 em Pull-Up e o jumper J17 em GND, verificar se o PORTD está habilitado por meio dos DIP switches SW3. Para mais detalhes sobre as ligações consultar o Manual do Kit EasyPICv7 e seu diagrama esquemático.
 
@@ -49,7 +47,7 @@
 
 ### RESULTADOS
 
-##### Questão 1
+#### Questão 1
 
 ```c
 void main(){
@@ -77,7 +75,7 @@ void main(){
 } // main
 ```
 
-##### Questão 2
+#### Questão 2
 
 ```c
 void main(){
@@ -114,4 +112,4 @@ void main(){
 } // main
 ```
 
-##### Questão 3
+#### Questão 3
