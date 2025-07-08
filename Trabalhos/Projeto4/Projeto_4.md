@@ -5,9 +5,9 @@
 ## Projeto 4: Controle PWM e Comunicação
 
  - NOME: Yuri Thadeu Oliveira Costa
-    - N° USP: 14754821
+   - N° USP: 14754821
  - NOME: Heloisa Oliveira de Carvalho
-    - N° USP: 13833960
+   - N° USP: 13833960
 
 ***
 ***
@@ -41,7 +41,6 @@ Implementar um projeto para controle PWM e comunicação serial utilizando a pla
 - O simulador Wokwi também oferece suporte a outras plataformas baseadas em microcontroladores de 32 bits, como a Raspberry Pi Pico e a STM32. O uso delas também é opcional e pode ser adotado como alternativa à ESP32 como um desafio adicional, a critério do aluno.
 
 <b>Formato de entrega da Parte 1:</b> Apresentar em um documento o programa desenvolvido com as partes principais devidamente comentadas. Apresentar fotos da montagem/diagrama; prints do monitor serial.
-
 
 #### Parte 2 – Aplicação final de escolha do(a) aluno(a)
 
@@ -175,11 +174,71 @@ void loop() {
 
 ##### Descrição do Projeto
 
-A ideia geral é criar um sistema de alarme e monitoramento assistivo para idosos e outros familiares, visando avisá-los sobre eventuais problemas e promover maior segurança, conforto e autonomia no dia a dia.
+Este projeto simula um sistema de monitoramento e alarme residencial. A ideia geral é criar uma tecnologia assistiva capaz de acompanhar e avisar idosos e outros familiares sobre eventuais problemas, visando promover maior segurança, conforto e autonomia no dia a dia.
 
-Especificamente, esta parte do projeto implementa um sistema de monitoramento e alerta residencial capaz de detectar e responder a três tipos de eventos críticos simulados: queda, vazamento de gás e a hora de tomar o remédio. Para isso, utiliza um microcontrolador ESP32, um display LCD para feedback visual, um LED e um buzzer para alertas sonoros e visuais. Além disso, incorpora servos motores para automatizar a abertura de uma janela, em caso de vazamento de gás e de compartimentos de remédios, para a medicação correta e na hora certa (ainda não será implementada a logica de horas nesse projeto).
+Especificamente, esta parte do projeto implementa um sistema de monitoramento e alerta residencial capaz de detectar e responder a três tipos de eventos críticos simulados: queda, vazamento de gás e a hora de tomar o remédio. Para isso, utiliza um microcontrolador ESP32, um display LCD para feedback visual, um LED e um buzzer para alertas sonoros e visuais. Além disso, incorpora servos motores para automatizar a abertura de uma janela, em caso de vazamento de gás, e de compartimentos de remédios, para a medicação correta e na hora certa (a lógica de horas ainda não será implementada neste projeto).
 
-A lógica de funcionamento prioriza alertas de maior gravidade (gás e queda), garantindo uma resposta imediata. O sistema também permite o desligamento manual dos alertas e, no caso do alerta de remédio, aciona servos específicos para abrir os compartimentos de medicamentos indicados por um bitmap configurável. 
+###### Estrutura e Configuração Inicial
+
+O programa inicia com a inclusão de bibliotecas essenciais: Wire.h para comunicação I2C, LiquidCrystal_I2C.h para controle do display LCD via I2C, e ESP32Servo.h para o gerenciamento dos servos motores no ESP32. São definidos pinos para as saídas (LED e buzzer) e para as entradas (botões de simulação de queda, gás, remédio e desligamento do alarme).
+
+Na função setup(), ocorre a inicialização do sistema:
+
+A comunicação serial é iniciada para depuração e monitoramento.
+
+Os pinos do LED e do buzzer são configurados como saídas.
+
+Os pinos dos botões são configurados como entradas com INPUT_PULLUP, o que simplifica a conexão física ao utilizar o resistor de pull-up interno do ESP32.
+
+O display LCD é inicializado, sua luz de fundo é ativada e uma mensagem inicial de "Sistema Ativo" é exibida.
+
+Todos os servos dos compartimentos de remédios são anexados aos seus respectivos pinos e posicionados na condição inicial (fechados).
+
+O servo da janela também é inicializado e posicionado em seu estado fechado.
+
+###### Loop Principal e Controle
+
+A função loop(), executada continuamente, gerencia o comportamento do sistema de alerta:
+
+Detecção de Eventos: O código verifica constantemente o estado dos botões de simulação de gás, queda e remédio.
+
+Priorização de Alertas: É implementada uma lógica de prioridade para os alertas. O alerta de gás, por sua criticidade, aciona a abertura da janela imediatamente e tem prioridade sobre os outros. O alerta de queda tem a maior prioridade, seguido pelo de gás e, por último, o de remédio. Isso garante que eventos mais graves sejam tratados com precedência.
+
+Ativação e Execução de Alerta: Se um botão de evento é pressionado e sua prioridade é maior que a do alerta ativo (ou se não há alerta ativo), a função iniciarAlerta() é chamada para atualizar o estado do sistema e as mensagens no LCD e Serial. Em seguida, a função executarAlerta() é chamada repetidamente para acionar os padrões visuais (LED) e sonoros (buzzer) específicos para o tipo de alerta ativo.
+
+Desligamento do Alerta: Durante a execução de um alerta, o sistema verifica se o botão de desligar foi pressionado. Se sim, a função pararAlerta() é chamada para desativar o alarme e realizar ações adicionais, como a abertura das caixas de remédios, se o alerta for do tipo "Remédio".
+
+###### Conceitos Fundamentais Aplicados
+Para o desenvolvimento deste código, diversos conceitos de eletrônica e programação embarcada foram essenciais:
+
+- Servos Motores: Os servos motores são utilizados para controlar a abertura da janela e dos compartimentos de remédios. A biblioteca ESP32Servo.h simplifica o controle de posição, permitindo que se defina o ângulo desejado (0 a 180 graus) com a função servo.write().
+
+- Priorização de Eventos: A utilização de uma enumeração (enum Alerta) com valores numéricos permite a fácil comparação e priorização dos alertas. Alertas com valores numéricos maiores (como QUEDA e GAS) são considerados mais críticos e podem sobrepor alertas de menor prioridade.
+
+- Comunicação Serial (UART): A comunicação serial é fundamental para a depuração do sistema e para o monitoramento em tempo real dos estados e mensagens. As funções Serial.begin(), Serial.print() e Serial.println() são amplamente utilizadas para enviar informações ao Monitor Serial.
+
+- Display LCD (I2C): O display LCD atua como a interface de saída para o usuário, exibindo mensagens claras sobre o estado do sistema e o tipo de alerta ativo. A comunicação é feita via protocolo I2C, que utiliza apenas dois fios (SDA e SCL), simplificando as conexões. As bibliotecas Wire.h e LiquidCrystal_I2C.h fornecem as ferramentas para interagir com o display, utilizando funções como lcd.init(), lcd.clear(), lcd.print() e lcd.setCursor().
+
+- Controle de Saídas Digitais e Buzzer: O LED e o buzzer são controlados como saídas digitais. A função digitalWrite() é usada para ligar e desligar o LED, enquanto as funções tone() e noTone() são empregadas para gerar e parar os sons no buzzer, permitindo a criação de padrões sonoros distintos para cada tipo de alerta.
+
+- Entradas Digitais (Botões com Pull-up): Os botões são configurados como entradas digitais com resistores de pull-up internos (INPUT_PULLUP). Isso significa que o pino de entrada é mantido em estado HIGH por padrão, e muda para LOW quando o botão é pressionado, simplificando o circuito. A função digitalRead() é usada para ler o estado de cada botão.
+
+###### Lógica Específica de Controle
+
+- iniciarAlerta(Alerta tipo): Esta função é responsável por definir o alerta ativo, limpar o LCD e exibir a mensagem correspondente ao tipo de alerta no display e no Monitor Serial.
+
+- executarAlerta(Alerta tipo): Implementa os padrões visuais e sonoros para cada tipo de alerta. Utiliza um switch-case para definir diferentes frequências de buzzer e tempos de piscar do LED, criando uma distinção clara entre os alertas de queda, gás e remédio.
+
+- pararAlerta(): Desativa o alerta ativo, desligando o LED e o buzzer. Se o alerta que foi parado era de remédio, esta função chama abrirCaixasSelecionadas() para liberar os medicamentos. Por fim, redefine o estado do sistema para "Ativo" no LCD.
+
+- abrirCaixasSelecionadas(): Percorre uma string end_caixa (que atua como um bitmap) para identificar quais compartimentos de remédios devem ser abertos. Para cada bit '1' na string, o servo correspondente é acionado para abrir (90 graus) e depois fechar (0 graus) o compartimento.
+
+- abrirJanela(): Simula a abertura da janela através do movimento repetitivo do servo da janela (5 ciclos de 0 a 180 graus e vice-versa), indicando a ventilação do ambiente em caso de vazamento de gás.
+
+- alertaToString(Alerta tipo): Uma função utilitária que converte o tipo de alerta (da enumeração Alerta) em uma string legível para exibição no LCD e no Monitor Serial.
+
+Este código proporciona uma simulação funcional de um sistema de monitoramento e alerta, integrando hardware e software de forma eficiente e responsiva, e atendendo aos objetivos propostos pelo projeto.
+
 
 ##### Código Implementado
 
