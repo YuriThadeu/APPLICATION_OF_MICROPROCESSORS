@@ -498,3 +498,67 @@ String alertaToString(Alerta tipo) {
     <p>Figura 5: Simulação do sistema no Wokwi com o alerta de hora do remédio ativado, mostrando as caixas de remédios sendo abertas pelos servos conforme o bitmap configurado.</p>
 </div>
 <br>
+
+***
+***
+
+### Conclusão
+
+O desenvolvimento deste projeto, dividido em duas partes complementares, proporcionou uma profunda imersão na aplicação de microcontroladores de 32 bits, com foco em técnicas de controle PWM e comunicação serial, além de reflexões sobre decisões de projeto e otimização energética.
+
+Na Parte 01, focamos no controle de brilho de um LED RGB utilizando a técnica de Modulação por Largura de Pulso (PWM) com o microcontrolador ESP32. Implementamos a modulação individual de cada cor (vermelho, verde e azul) com resolução de 8 bits e frequência de 5 kHz, conforme os requisitos. Através da variação do ciclo de trabalho com incrementos distintos para cada cor, conseguimos gerar um efeito de ciclo contínuo de brilho, com o acompanhamento em tempo real dos valores de duty cycle e incrementos no monitor serial. Esta etapa foi crucial para exercitar a programação em alto nível e solidificar o entendimento sobre a aplicação prática do PWM na modulação de sinais.
+
+Na Parte 02, aplicamos e expandimos esses conhecimentos na criação de um sistema de monitoramento e alarme assistivo. Este sistema foi concebido para acompanhar e avisar idosos e outros familiares sobre eventuais problemas, como quedas, vazamentos de gás e a hora da medicação, promovendo segurança e autonomia. A implementação envolveu o uso de um display LCD via comunicação I2C para feedback visual, um LED e um buzzer para alertas sonoros e visuais, e servos motores para automatizar ações como a abertura de uma janela e de compartimentos de remédios. A lógica de funcionamento priorizou alertas de maior gravidade, garantindo uma resposta imediata e demonstrando a importância da comunicação serial (UART para depuração, I2C para LCD) e do controle de periféricos.
+
+#### Justificativa da Escolha do Microcontrolador de 32 Bits
+
+A escolha do ESP32 como microcontrolador para este projeto foi fundamental e estratégica, principalmente porque esta simulação é apenas uma parte de uma iniciativa maior. O projeto final prevê a implementação de rotinas de contagem e acompanhamento de tempo, a utilização de outros periféricos mais complexos, e o uso de conectividade de rede via Wi-Fi e, provavelmente, Bluetooth. A arquitetura de 32 bits do ESP32 justifica-se em detrimento de outras opções devido às suas capacidades superiores que se alinham perfeitamente com essas necessidades futuras:
+
+##### Desempenho
+
+Microcontroladores de 32 bits, como o ESP32, operam em frequências de clock significativamente mais altas e possuem arquiteturas mais complexas, com mais registradores e pipelines de instrução. Isso resulta em uma capacidade de processamento superior, permitindo execuções de cálculos mais rápidas e manipulação eficiente de dados. Para um sistema de alarme que exige resposta ágil e para as futuras rotinas de contagem e acompanhamento de tempo, que demandarão processamento mais intenso, o desempenho do ESP32 é essencial.
+
+##### Memória
+
+Geralmente, microcontroladores de 32 bits oferecem mais memória RAM e Flash. Para este projeto, que já envolve bibliotecas para LCD I2C e servos, e que no futuro incorporará mais periféricos e lógicas complexas, a maior memória do ESP32 é uma vantagem crucial. Em um ambiente de 8 bits, a alocação de recursos poderia se tornar um desafio significativo, exigindo otimizações de código e dados muito mais rigorosas.
+
+##### Periféricos e Conectividade
+
+Processadores de 32 bits frequentemente integram uma gama mais ampla e avançada de periféricos, como múltiplos timers, controladores de PWM sofisticados, e interfaces de comunicação como Wi-Fi e Bluetooth, que são nativas do ESP32. A capacidade de futuras expansões com conectividade para monitoramento remoto, integração com aplicativos móveis e comunicação com outros dispositivos justificaria plenamente a escolha do ESP32, que já dispõe dessas funcionalidades embarcadas.
+
+##### Multitarefa
+
+A arquitetura de 32 bits e a presença de múltiplos núcleos de processamento (como no ESP32) facilitam a execução de tarefas concorrentes. Para um sistema mais complexo que precisará gerenciar simultaneamente rotinas de tempo, contagem, comunicação de rede e controle de periféricos, a capacidade de rodar essas operações em paralelo sem degradação perceptível no desempenho é um diferencial decisivo.
+
+#### Quando Utilizar (ou Não)
+
+- Utilizar quando: Houver requerimentos de alta performance, conectividade de rede (Wi-Fi, Bluetooth), manipulação de dados complexos, interfaces de usuário ricas (telas coloridas, touch), ou quando há necessidade de expansão futura para funcionalidades mais avançadas. Este projeto se enquadra perfeitamente nesse cenário, pois é a base para um sistema mais abrangente.
+
+- Não utilizar quando: O projeto é extremamente simples, com requisitos mínimos de processamento e memória (e.g., piscar um LED, ler um único sensor simples). Nesses casos, a complexidade e o custo adicionais de um microcontrolador de 32 bits seriam desnecessários, e uma solução de 8 bits seria mais eficiente em termos de custo e consumo.
+
+####  Impacto do Consumo de Energia e Otimização em Microcontroladores de 32 Bits
+
+Microcontroladores de 32 bits, por serem mais poderosos, geralmente têm um consumo de energia base maior do que seus equivalentes de 8 bits. No entanto, eles oferecem modos de otimização mais sofisticados que podem compensar esse consumo:
+
+##### Modos de Baixo Consumo
+
+Microcontroladores de 32 bits, como o ESP32, implementam diversos modos de suspensão (Deep Sleep, Light Sleep, Modem Sleep) que permitem desligar ou reduzir a frequência de componentes não utilizados (CPU, Wi-Fi, Bluetooth, periféricos) para economizar energia. A ativação pode ser por interrupções ou temporizadores, o que será crucial para a gestão de energia em um dispositivo que pode precisar operar por longos períodos.
+
+##### Gerenciamento Dinâmico de Frequência
+
+É possível ajustar a frequência de clock da CPU dinamicamente. Para tarefas menos intensivas, a frequência pode ser reduzida, diminuindo o consumo. Para picos de performance, a frequência é aumentada, otimizando o balanço entre desempenho e consumo.
+
+##### Controle de Periféricos Não Utilizados
+
+Desabilitar os módulos (Wi-Fi, Bluetooth, ADCs, etc.) quando não estão em uso é uma estratégia eficaz para economizar energia. Embora neste projeto de simulação os módulos de Wi-Fi e Bluetooth não sejam explicitamente utilizados, em uma aplicação real com foco em baixo consumo, eles deveriam ser desativados quando inativos para evitar consumo desnecessário.
+
+##### Eficiência por Ciclo
+
+Apesar do maior consumo total, o trabalho realizado por ciclo de clock é significativamente maior em um processador de 32 bits. Isso significa que ele pode executar uma tarefa complexa mais rapidamente e depois entrar em um modo de baixo consumo, resultando em um consumo médio menor para a mesma tarefa complexa do que um microcontrolador de 8 bits que levaria mais tempo e ciclos para completá-la.
+
+
+#### Finalizando
+
+Os desafios de implementação incluíram a integração de diferentes bibliotecas e periféricos (LCD, servos, botões, LED, buzzer), a gestão de prioridades de alertas e a simulação de comportamentos complexos no Wokwi. A programação em alto nível no ambiente Arduino para o ESP32 facilitou o desenvolvimento, permitindo focar na lógica do sistema.
+
+Em suma, este projeto demonstrou a capacidade de desenvolver soluções práticas e eficientes utilizando microcontroladores de 32 bits, aplicando conceitos de PWM e comunicação, e promovendo uma reflexão crítica sobre as decisões de hardware e software para sistemas embarcados, especialmente no contexto de um projeto com expansões futuras planejadas.
